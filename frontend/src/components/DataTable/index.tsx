@@ -13,9 +13,9 @@ const DataTable = () => {
         </thead>
         <tbody>
           {
-            new Array(10).fill('').map(() => {
+            new Array(10).fill('').map((row, key) => {
               return (
-                <tr>
+                <tr key={key}>
                   <td>22/04/2021</td>
                   <td>Barry Allen</td>
                   <td>34</td>

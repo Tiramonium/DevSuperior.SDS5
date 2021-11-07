@@ -9,8 +9,7 @@ public class SellerDTO implements Serializable {
     public Long id;
     public String name;
 
-    public SellerDTO() {
-    }
+    public SellerDTO() {}
 
     public SellerDTO(Long id, String name) {
         this.id = id;

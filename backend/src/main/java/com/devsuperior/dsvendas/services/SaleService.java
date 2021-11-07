@@ -1,7 +1,10 @@
 package com.devsuperior.dsvendas.services;
 
+import java.util.List;
 import com.devsuperior.dsvendas.domain.Sale;
 import com.devsuperior.dsvendas.dto.SaleDTO;
+import com.devsuperior.dsvendas.dto.SaleSuccessDTO;
+import com.devsuperior.dsvendas.dto.SaleSumDTO;
 import com.devsuperior.dsvendas.repositories.SaleRepository;
 import com.devsuperior.dsvendas.repositories.SellerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +26,15 @@ public class SaleService {
         sellerRepository.findAll();
         Page<Sale> lista = repository.findAll(pageable);
         return lista.map(sale -> new SaleDTO(sale));
+    }
+
+    @Transactional(readOnly = true)
+    public List<SaleSumDTO> amountGroupedBySeller() {
+        return repository.amountGroupedBySeller();
+    }
+
+    @Transactional(readOnly = true)
+    public List<SaleSuccessDTO> successGroupedBySeller() {
+        return repository.successGroupedBySeller();
     }
 }
